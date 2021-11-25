@@ -21,6 +21,10 @@ composer v^2
 
 <blockquote>php artisan migrate</blockquote>
 
+- Jalankan perintah dibawah ini untuk mengambil data seed
+
+<blockquote>php artisan db:seed</blockquote>
+
 - Jalankan perintah dibawah ini untuk menjalankan aplikasi di local
 
 <blockquote>php artisan serve</blockquote>

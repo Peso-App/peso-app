@@ -16,13 +16,13 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">Peso App</a>
+                <a class="navbar-brand" href="{{ route('home') }}">Peso App</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" href="url('/') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </div>
                 <div class="navbar-nav ml-auto">
                     @guest
