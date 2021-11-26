@@ -19,7 +19,7 @@ composer v^2
 - Setting dan ganti nama DB_DATABASE dengan database yang sudah kalian buat tadi
 - Jalankan perintah dibawah ini untuk migration database
 
-<blockquote>php artisan migrate</blockquote>
+<blockquote>php artisan migrate:refresh</blockquote>
 
 - Jalankan perintah dibawah ini untuk mengambil data seed
 
