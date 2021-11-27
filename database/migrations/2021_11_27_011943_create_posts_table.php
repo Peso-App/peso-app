@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKeluhanTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKeluhanTable extends Migration
      */
     public function up()
     {
-        Schema::create('keluhan', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('judul');
@@ -30,6 +30,6 @@ class CreateKeluhanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keluhan');
+        Schema::dropIfExists('posts');
     }
 }
