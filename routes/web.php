@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/home', 'HomeController@store')->name('home');
+Route::get('/', function () {
+    return view('landing');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/detail/{id}', 'DetailController@index')->name('detail');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/home', 'HomeController@store')->name('home');
+});
