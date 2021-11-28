@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       
+        $posts = Post::paginate(5);
+        return view('home', ['posts'=>$posts]);
+        // $user = User::join('posts', 'judul', '=', 'posts.judul')->paginate(5);
+        // return view('home', ['users'=>$user]);
+    }
+
+    public function store(Request $request)
+    {
+        $post = new Post();
+
+        $post->user_id = auth()->user()->id;
+        $post->judul = $request->judul;
+        $post->deskripsi = $request->deskripsi;
+        $post->save();
+
+        return redirect()->to('/home');
     }
 }
