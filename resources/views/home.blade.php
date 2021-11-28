@@ -46,22 +46,21 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body">
-                          <form>
+                        <form action="/home" method="POST">
+                          @csrf
+                          <div class="modal-body">
                             <div class="form-group">
                               <label for="recipient-name" class="col-form-label">Judul</label>
-                              <input type="text" class="form-control" id="recipient-name">
+                              <input type="text" name="judul" class="form-control" id="recipient-name">
                             </div>
                             <div class="form-group">
                               <label for="message-text" class="col-form-label">Deskripsi</label>
-                              <textarea class="form-control" id="message-text"></textarea>
+                              <textarea name="deskripsi" class="form-control" id="message-text"></textarea>
                             </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Post</button>
-                        </div>
+                            <button type="submit" class="btn btn-primary">Post</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>

@@ -19,5 +19,14 @@ class UserSeeder extends Seeder
             'email' => 'dwifahriza@gamil.com',
             'password' => Hash::make('admin'),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Riswan Gani',
+            'email' => 'riswangani11@gamil.com',
+            'address' => 'Jl Dago BBL',
+            'provinsi' => 'Jawa Barat',
+            'kab_kota' => 'Bandung',
+            'password' => Hash::make('admin'),
+        ]);
     }
 }
