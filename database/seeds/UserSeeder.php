@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Riswan Gani',
-            'email' => 'riswangani11@gamil.com',
+            'email' => 'riswangani11@gmail.com',
             'address' => 'Jl Dago BBL',
             'provinsi' => 'Jawa Barat',
             'kab_kota' => 'Bandung',

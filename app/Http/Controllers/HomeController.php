@@ -25,11 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
         $posts = Post::paginate(5);
         return view('home', ['posts'=>$posts]);
-        // $user = User::join('posts', 'judul', '=', 'posts.judul')->paginate(5);
-        // return view('home', ['users'=>$user]);
     }
 
     public function store(Request $request)

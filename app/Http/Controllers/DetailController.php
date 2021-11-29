@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 
-class detailController extends Controller
+class DetailController extends Controller
 {
     public function index($id)
     {
