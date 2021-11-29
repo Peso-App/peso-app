@@ -23,6 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{{ route('mypost') }}">My Post <span class="sr-only">(current)</span></a>
                 </div>
                 <div class="navbar-nav ml-auto">
                     @guest

@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/detail/{id}', 'DetailController@index')->name('detail');
+Route::get('/mypost', 'MyPostController@index')->name('mypost');
 
 Route::middleware('auth')->group(function () {
     Route::post('/home', 'HomeController@store')->name('home');
