@@ -31,7 +31,7 @@ class MyPostController extends Controller
             ->update([
                 'judul' => $request->judul,
                 'deskripsi' => $request->deskripsi,
-            ]);
+            ]); 
 
         return redirect('mypost')->with('status', 'Success Update Posting');
     }
