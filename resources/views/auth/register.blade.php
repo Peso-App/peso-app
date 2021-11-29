@@ -42,45 +42,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Alamat Lengkap') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" autocomplete="address" placeholder="Jl gagak No 2">
-
-                                <div class="form-row pt-2">
-                                    <div class="col-md-6">
-                                      <label for="inputProvince">Provinsi</label>
-                                      <select name="provinsi" id="inputProvince" class="form-control">
-                                        <option>Choose...</option>
-                                        <option value="Jawa Barat">Jawa Barat</option>
-                                        <option value="Jawa Tengah">Jawa Tengah</option>
-                                        <option value="Jawa Timur">Jawa Timur</option>
-                                        <option value="Jakarta">Jakarta</option>
-                                      </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <label for="inputCity">Kab/Kota</label>
-                                      <input type="text" class="form-control" id="inputCity" name="kabKota">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-
-                        <div class="form-group row">
                             <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('No Hp') }}</label>
 
                             <div class="col-md-6">
-                                <input id="number" type="number" class="form-control" name="number" value="{{ old('number') }}" autocomplete="number" placeholder="0891 2345 6789">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="skill" class="col-md-4 col-form-label text-md-right">{{ __('Keahlian') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="skill" type="text" class="form-control" name="skill" value="{{ old('skill') }}" autocomplete="skill" placeholder="Teknik Unknown">
+                                <input id="number" type="tel" class="form-control @error('password') is-invalid @enderror" name="number" value="{{ old('number') }}" autocomplete="number" placeholder="0891 2345 6789">
                             </div>
                         </div>
 
