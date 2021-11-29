@@ -26,4 +26,8 @@ Route::get('/detail/{id}', 'DetailController@index')->name('detail');
 
 Route::middleware('auth')->group(function () {
     Route::post('/home', 'HomeController@store')->name('home');
+
+    // profile
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::post('/profile', 'ProfileController@update')->name('profile.update');
 });
