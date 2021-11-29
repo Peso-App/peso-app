@@ -11,6 +11,28 @@ class MyPostController extends Controller
     {
         $posts = Post::get(); 
         
-        return view('mypost', ['posts'=>$posts]);
+        return view('mypost/mypost', ['posts'=>$posts]);
+    }
+
+    public function showupdate($id)
+    {
+        $post = Post::find($id);
+        return view('mypost/update-mypost', compact('post'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        Post::where('id', $id)
+            ->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+            ]);
+
+        return redirect('mypost')->with('status', 'Success Update Posting');
     }
 }

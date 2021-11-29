@@ -5,6 +5,14 @@
 @section('content')
     @auth
     <div class="container">
+        @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('status') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         <div class="row">
             @foreach ($posts as $post)
             @if ($post->user_id == Auth::user()->id)
@@ -14,7 +22,7 @@
                     <div>
                         <h5 class="card-title text-center font-weight-bold">{{Str::limit($post->judul,15)}}</h5>
                     </div>
-                  <a href="#" class="btn btn-block text-center btn-success">Edit</a>
+                  <a href="{{URL::to('/')}}/mypost/{{$post->id}}/update" class="btn btn-block text-center btn-success">Edit</a>
                   <a href="#" class="btn btn-block text-center btn-danger">Hapus</a>
                 </div>
               </div>
