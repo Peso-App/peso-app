@@ -33,6 +33,11 @@ class HomeController extends Controller
     {
         $post = new Post();
 
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
         $post->user_id = auth()->user()->id;
         $post->judul = $request->judul;
         $post->deskripsi = $request->deskripsi;

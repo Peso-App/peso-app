@@ -33,4 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypost', 'MyPostController@show')->name('mypost');
     Route::get('/mypost/{id}/update', 'MyPostController@showupdate');
     Route::post('/mypost/{id}', 'MyPostController@update');
+
+    Route::delete('/mypost/{id}/delete', 'MyPostController@destroy');
 });
