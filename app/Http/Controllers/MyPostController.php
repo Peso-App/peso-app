@@ -35,4 +35,11 @@ class MyPostController extends Controller
 
         return redirect('mypost')->with('status', 'Success Update Posting');
     }
+
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('mypost')->with('status', 'Success Delete Posting');
+    }
 }
