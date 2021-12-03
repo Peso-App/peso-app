@@ -15,7 +15,7 @@
       <p class="card-text">{{ $post->deskripsi }}</p>
       @auth
         <a href="#" class="btn btn-primary">Apply</a>
-        <a href="#" class="btn btn-primary">Diskusi</a>
+        <a href="/chatify/{{ $post->user->id }}" class="btn btn-primary">Diskusi</a>
       @endauth
     </div>
   </div>
