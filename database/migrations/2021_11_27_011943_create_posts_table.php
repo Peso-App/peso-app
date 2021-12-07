@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('judul');
             $table->text('deskripsi');
+            $table->boolean('aktif');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
