@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('kab_kota')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('keahlian')->nullable();
+            $table->string('jenis_bank')->nullable();
+            $table->string('no_rek')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

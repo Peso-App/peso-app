@@ -14,7 +14,7 @@
          </div>
         @endif
         <div>
-            <h4 class="font-weight-bold">All Post</h4>
+            <h4 class="font-weight-bold">My Post</h4>
             <hr>
         </div>
             <div class="col-md-6">

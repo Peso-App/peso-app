@@ -54,17 +54,17 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Alamat Lengkap') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ $user->address }}" autocomplete="address" placeholder="Jl gagak No 2">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}" autocomplete="address" placeholder="Jl gagak No 2">
 
                                 <div class="form-row pt-2">
                                     <div class="col-md-6">
                                       <label for="inputProvince">Provinsi</label>
-                                      <input type="text" class="form-control" id="inputCity" name="provinsi" value="{{ $user->provinsi }}">
+                                      <input type="text" class="form-control form-control @error('provinsi') is-invalid @enderror" id="inputCity" name="provinsi" value="{{ $user->provinsi }}">
                                     </div>
 
                                     <div class="col-md-6">
                                       <label for="inputCity">Kab/Kota</label>
-                                      <input type="text" class="form-control" id="inputCity" name="kabKota" value="{{ $user->kab_kota }}">
+                                      <input type="text" class="form-control form-control @error('kabKota') is-invalid @enderror" id="inputCity" name="kabKota" value="{{ $user->kab_kota }}">
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('No Hp') }}</label>
 
                             <div class="col-md-6">
-                                <input id="number" type="number" class="form-control" name="number" value="{{ $user->no_hp }}" autocomplete="number" placeholder="0891 2345 6789">
+                                <input id="number" type="number" class="form-control @error('number') is-invalid @enderror" name="number" value="{{ $user->no_hp }}" autocomplete="number" placeholder="0891 2345 6789">
                             </div>
                         </div>
 
@@ -84,7 +84,23 @@
                             <label for="skill" class="col-md-4 col-form-label text-md-right">{{ __('Keahlian') }}</label>
 
                             <div class="col-md-6">
-                                <input id="skill" type="text" class="form-control" name="skill" value="{{ $user->keahlian }}" autocomplete="skill" placeholder="Teknik Unknown">
+                                <input id="skill" type="text" class="form-control @error('skill') is-invalid @enderror" name="skill" value="{{ $user->keahlian }}" autocomplete="skill" placeholder="Teknik Unknown">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="jenis_bank" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Bank') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="jenis_bank" type="text" class="form-control @error('jenisBank') is-invalid @enderror" name="jenisBank" value="{{ $user->jenis_bank }}" autocomplete="jenis_bank" placeholder="ex: BCA, BRI">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="no_rek" class="col-md-4 col-form-label text-md-right">{{ __('No Rekening') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="no_rek" type="number" class="form-control @error('noRek') is-invalid @enderror" name="noRek" value="{{ $user->no_rek }}" autocomplete="no_rek" placeholder="ex: 123X XXXX XX">
                             </div>
                         </div>
 

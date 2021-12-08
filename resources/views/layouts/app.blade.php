@@ -9,6 +9,9 @@
 
     <title>@yield('title')</title>
 
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/1f03899c89.js" crossorigin="anonymous"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
@@ -23,7 +26,9 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                    @auth
                     <a class="nav-link active" href="{{ route('mypost') }}">My Post <span class="sr-only">(current)</span></a>
+                    @endauth
                 </div>
                 <div class="navbar-nav ml-auto">
                     @guest
@@ -36,6 +41,9 @@
                             </li>
                         @endif
                     @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('notifikasi') }}">{{ __('Notifikasi') }}</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}

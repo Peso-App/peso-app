@@ -41,6 +41,7 @@ class HomeController extends Controller
         $post->user_id = auth()->user()->id;
         $post->judul = $request->judul;
         $post->deskripsi = $request->deskripsi;
+        $post->aktif = 1;
         $post->save();
 
         return redirect()->to('/home');

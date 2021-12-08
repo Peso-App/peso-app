@@ -22,6 +22,13 @@ class ProfileController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'address' => ['required'],
+            'provinsi' => ['required'],
+            'kabKota' => ['required'],
+            'number' => ['required'],
+            'skill' => ['required'],
+            'jenisBank' => ['required'],
+            'noRek' => ['required'],
         ]);
 
         $user->name = $request->input('name');
@@ -30,6 +37,8 @@ class ProfileController extends Controller
         $user->kab_kota = $request->input('kabKota');
         $user->no_hp = $request->input('number');
         $user->keahlian = $request->input('skill');
+        $user->jenis_bank = $request->input('jenisBank');
+        $user->no_rek = $request->input('noRek');
 
         $user->save();
         return redirect('profile')->with('status', 'change profile success');
