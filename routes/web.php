@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifikasi/{uuid}/waiting/service', 'DetailController@konfirmasiPenyedia')->name('notifikasi.konfirmasiPenyedia');
     Route::get('/notifikasi/{uuid}/sudah', 'DetailController@sudahPerbaiki')->name('notifikasi.sudahPerbaiki');
     Route::get('/notifikasi/{uuid}/belum', 'DetailController@belumPerbaiki')->name('notifikasi.belumPerbaiki');
+    Route::post('/notifikasi/{uuid}/bayar', 'DetailController@deskripsiDanHarga')->name('notifikasi.bayar');
+    Route::get('/notifikasi/{uuid}/bayar/bank', 'DetailController@bayarKlien')->name('notifikasi.bayar.bank');
+    Route::get('/notifikasi/{uuid}/bayar/konfirmasi', 'DetailController@konfirmasiBayarPenyedia')->name('notifikasi.bayar.konfirmasi');
 
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::post('/profile', 'ProfileController@update')->name('profile.update');

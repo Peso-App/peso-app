@@ -51,17 +51,27 @@
           </td>
         </tr>
         @endif
-        @if (!is_null($t->already_at))
+        @if (!is_null($t->already_at) && is_null($t->pay_amount_at))
         <tr>
-          <form action="" method="POST">
-            <td colspan="4" class="text-center"><textarea name="" id="" cols="30" rows="3" placeholder="Masukkan keterangan ex: harga hardisk, processor dll"></textarea></td>
-            <td><input type="text" name="" placeholder="Masukkan total harga"></td>
+          <form action="{{ route('notifikasi.bayar',$t->uuid) }}" method="POST">
+            @csrf
+            <td colspan="4"><textarea class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" cols="30" rows="3" placeholder="Masukkan keterangan ex: harga hardisk, processor dll"></textarea></td>
+            <td><input type="number" class="form-control @error('harga') is-invalid @enderror" name="harga" placeholder="Masukkan total harga perbaikan"></td>
             <td>
-                <button type="submit" class="btn btn-success">Konfirmasi</button>
+                <button type="submit" class="btn btn-success">{{ __('Konfirmasi') }}</button>
             </td>
           </form>
         </tr>
         @endif
+        @endif
+        @if (!is_null($t->paid_at) && is_null($t->wait_paid_at))
+        <tr>
+          <td colspan="5" class="text-center">Konfirmasi apakah klien sudah melakukan pembayaran</td>
+          <td>
+            <a href="{{ route('notifikasi.bayar.konfirmasi',$t->uuid) }}" class="btn btn-success"><i class="fas fa-check"></i></a>
+            <a href="#" class="btn btn-danger"><i class="fas fa-times"></i></a>
+          </td>
+        </tr>
         @endif
       </tbody>
     </table>
@@ -115,9 +125,42 @@
         </tr>
         @endif
         @endif
+        @if (!is_null($t->pay_amount_at) && is_null($t->paid_at))
+        <tr>
+          <td colspan="5"></td>
+          <td class="text-center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Bayar</button>
+          </td>
+        </tr>
+        @endif
       </tbody>
     </table>
     @endif
+
+    <!-- Modal Bayar -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bayar ke {{ $t->penyedianya->name }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6>Metode Pembayaran</h6>
+
+            <p class="mt-3">Jenis bank: <b>{{ $t->penyedianya->jenis_bank }}</b></p>
+            <p style="margin-top: -15px;">No Rekening: <b>{{ $t->penyedianya->no_rek }}</b></p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <a href="{{ route('notifikasi.bayar.bank',$t->uuid) }}" class="btn btn-primary">Bayar</a>
+          </div>
+        </div>
+      </div>
+    </div>
     @endforeach
 </div>
 @endsection

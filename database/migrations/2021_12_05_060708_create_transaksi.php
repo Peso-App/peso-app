@@ -23,8 +23,11 @@ class CreateTransaksi extends Migration
             $table->timestamp("wait_service_at")->nullable();
             $table->timestamp("already_at")->nullable();
             $table->timestamp("notyet_at")->nullable();
-            $table->text('keterangan');
-            $table->double('harga');
+            $table->timestamp("pay_amount_at")->nullable();
+            $table->timestamp("paid_at")->nullable();
+            $table->timestamp("wait_paid_at")->nullable();
+            $table->string('keterangan')->nullable();
+            $table->double('harga')->nullable();
             $table->string('uuid');
             $table->timestamps();
 

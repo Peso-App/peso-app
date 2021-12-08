@@ -53,6 +53,18 @@ class DetailController extends Controller
             $status = 'Belum diatur';
         }
 
+        if (!is_null($transaksi->pay_amount_at)) {
+            $status = 'Menunggu Klien melakukan pembayaran';
+        }
+
+        if (!is_null($transaksi->paid_at)) {
+            $status = 'Klien sudah melakukan pembayaran';
+        }
+
+        if (!is_null($transaksi->wait_paid_at)) {
+            $status = 'perbaikan selesai';
+        }
+
         return $status;
     }
 
@@ -80,6 +92,18 @@ class DetailController extends Controller
 
         if (!is_null($transaksi->notyet_at)) {
             $status = 'Belum diatur';
+        }
+
+        if (!is_null($transaksi->pay_amount_at)) {
+            $status = 'Mohon untuk segera melakukan pembayaran';
+        }
+
+        if (!is_null($transaksi->paid_at)) {
+            $status = 'Berhasil, anda sudah melakukan pembayaran';
+        }
+
+        if (!is_null($transaksi->wait_paid_at)) {
+            $status = 'perbaikan selesai';
         }
 
         return $status;
@@ -161,6 +185,55 @@ class DetailController extends Controller
         }
 
         $transaksi->notyet_at = date('Y-m-d H:i:s');
+        $transaksi->save();
+
+        return redirect('notifikasi');
+    }
+
+    public function deskripsiDanHarga($uuid, Request $request)
+    {
+        $transaksi = Transaksi::where('uuid', $uuid)->first();
+
+        if (!$transaksi) {
+            throw new ModelNotFoundException("transaksi tidak ditemukan");
+        }
+
+        $request->validate([
+            'keterangan' => ['required'],
+            'harga' => ['required'],
+        ]);
+
+        $transaksi->keterangan = $request->input('keterangan');
+        $transaksi->harga = $request->input('harga');
+        $transaksi->pay_amount_at = date('Y-m-d H:i:s');
+        $transaksi->save();
+
+        return redirect('notifikasi');
+    }
+
+    public function bayarKlien($uuid)
+    {
+        $transaksi = Transaksi::where('uuid', $uuid)->first();
+
+        if (!$transaksi) {
+            throw new ModelNotFoundException("transaksi tidak ditemukan");
+        }
+
+        $transaksi->paid_at = date('Y-m-d H:i:s');
+        $transaksi->save();
+
+        return redirect('notifikasi');
+    }
+
+    public function konfirmasiBayarPenyedia($uuid)
+    {
+        $transaksi = Transaksi::where('uuid', $uuid)->first();
+
+        if (!$transaksi) {
+            throw new ModelNotFoundException("transaksi tidak ditemukan");
+        }
+
+        $transaksi->wait_paid_at = date('Y-m-d H:i:s');
         $transaksi->save();
 
         return redirect('notifikasi');
