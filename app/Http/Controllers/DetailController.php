@@ -234,6 +234,7 @@ class DetailController extends Controller
         }
 
         $transaksi->wait_paid_at = date('Y-m-d H:i:s');
+        $transaksi->postnya->update([ 'aktif' => 0 ]);
         $transaksi->save();
 
         return redirect('notifikasi');
