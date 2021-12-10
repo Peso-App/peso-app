@@ -48,4 +48,5 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/mypost/{id}/delete', 'MyPostController@destroy');
 
+
 });
