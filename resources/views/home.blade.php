@@ -63,10 +63,11 @@
 
   <div class="row">
       @foreach ($posts as $post)
+      @if (($post->aktif)===1)  
       <div class="col-sm-4 mb-3">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title font-weight-bold">{{Str::limit($post->judul,15)}}</h5>
+            <h5 class="card-title font-weight-bold">{{Str::limit($post->judul,25)}}</h5>
             <p class="card-text">Nama: {{$post->user->name}}</p>
             <p class="card-text">Provinsi: {{$post->user->provinsi}}</p>
             <p class="card-text">Kota: {{$post->user->kab_kota}}</p>
@@ -74,6 +75,7 @@
           </div>
         </div>
       </div>
+      @endif
       @endforeach
   </div>
   <div class="d-flex justify-content-center">
