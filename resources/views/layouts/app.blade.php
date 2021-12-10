@@ -42,6 +42,9 @@
                         @endif
                     @else
                         <li class="nav-item">
+                            <a class="nav-link" href="/chatify">{{ __('My Chat') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('notifikasi') }}">{{ __('Notifikasi') }}</a>
                         </li>
                         <li class="nav-item dropdown">
