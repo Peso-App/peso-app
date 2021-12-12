@@ -27,7 +27,6 @@
           @csrf
           @if (Auth::user()->address === null and Auth::user()->provinsi === null and Auth::user()->provinsi === null and Auth::user()->kab_kota === null and Auth::user()->no_hp === null and Auth::user()->keahlian === null and Auth::user()->jenis_bank === null and Auth::user()->no_rek === null)
 
-
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Tawari
