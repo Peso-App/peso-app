@@ -23,15 +23,14 @@
                     @if ($post->user_id == Auth::user()->id)
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="card-title text-center align-middle">{{Str::limit($post->judul,15)}}</h6>
+                            <h6 class="card-title text-center align-middle">{{Str::limit($post->judul,20)}}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <a href="{{URL::to('/')}}/mypost/{{$post->id}}/update" class="btn  text-center btn-sm btn-success mr-2">Update</a>
-                            <form action="/mypost/{{$post->id}}/delete" method="POST">
-                                @csrf
-                                @method("delete")
-                                <button class="btn btn-sm text-center btn-danger" type="submit">Hapus</button>
-                            </form>
+                            @if ($post->aktif == 0)
+                            <button disabled class="btn btn-light text-center btn-sm mr-2"><strong>Selesai</strong></button>
+                            @else
+                            <a href="{{URL::to('/')}}/mypost/{{$post->id}}/update" class="btn text-center btn-sm btn-success mr-2">Update</a>
+                            @endif
                         </div>    
                     </li>
                     @endif

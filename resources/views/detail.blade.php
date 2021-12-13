@@ -21,6 +21,9 @@
       <h5 class="card-title">{{ $post->judul }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ $post->user->provinsi }}, {{ $post->user->kab_kota }}</h6>
       <p class="card-text">{{ $post->deskripsi }}</p>
+      @guest
+      <a href="{{ route('login') }}" class="btn btn-primary">Login untuk tawari perbaikan</a>
+      @endguest
       @auth
         @if ($post->user_id != Auth::user()->id)
         <form action="/detail/{{ $post->id }}/transaksi" method="POST">
