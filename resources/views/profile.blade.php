@@ -26,7 +26,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" autocomplete="name" autofocus placeholder="Ucup">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" autocomplete="name" autofocus placeholder="Ucup" @if (!is_null($user->name)) ? value="{{ $user->name }}" @else value="{{ old('name') }}" @endif >
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -54,17 +54,17 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Alamat Lengkap') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}" autocomplete="address" placeholder="Jl gagak No 2">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" autocomplete="address" placeholder="Jl gagak No 2" @if (!is_null($user->address)) ? value="{{ $user->address }}" @else value="{{ old('address') }}" @endif >
 
                                 <div class="form-row pt-2">
                                     <div class="col-md-6">
                                       <label for="inputProvince">Provinsi</label>
-                                      <input type="text" class="form-control form-control @error('provinsi') is-invalid @enderror" id="inputCity" name="provinsi" value="{{ $user->provinsi }}">
+                                      <input type="text" class="form-control form-control @error('provinsi') is-invalid @enderror" id="inputCity" name="provinsi" @if (!is_null($user->provinsi)) ? value="{{ $user->provinsi }}" @else value="{{ old('provinsi') }}" @endif >
                                     </div>
 
                                     <div class="col-md-6">
                                       <label for="inputCity">Kab/Kota</label>
-                                      <input type="text" class="form-control form-control @error('kabKota') is-invalid @enderror" id="inputCity" name="kabKota" value="{{ $user->kab_kota }}">
+                                      <input type="text" class="form-control form-control @error('kabKota') is-invalid @enderror" id="inputCity" name="kabKota" @if (!is_null($user->kab_kota)) ? value="{{ $user->kab_kota }}" @else value="{{ old('kabKota') }}" @endif >
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('No Hp') }}</label>
 
                             <div class="col-md-6">
-                                <input id="number" type="number" class="form-control @error('number') is-invalid @enderror" name="number" value="{{ $user->no_hp }}" autocomplete="number" placeholder="0891 2345 6789">
+                                <input id="number" type="number" class="form-control @error('number') is-invalid @enderror" name="number" autocomplete="number" placeholder="0891 2345 6789" @if (!is_null($user->no_hp)) ? value="{{ $user->no_hp }}" @else value="{{ old('number') }}" @endif >
                             </div>
                         </div>
 
@@ -84,15 +84,19 @@
                             <label for="skill" class="col-md-4 col-form-label text-md-right">{{ __('Keahlian') }}</label>
 
                             <div class="col-md-6">
-                                <input id="skill" type="text" class="form-control @error('skill') is-invalid @enderror" name="skill" value="{{ $user->keahlian }}" autocomplete="skill" placeholder="Teknik Unknown">
+                                <input id="skill" type="text" class="form-control" name="skill" autocomplete="skill" placeholder="Teknisi Unknown" @if (!is_null($user->keahlian)) ? value="{{ $user->keahlian }}" @else value="{{ old('skill') }}" @endif >
+
+                                <span>
+                                    <strong><p style="font-size: 15px;">Isi jika anda adalah penyedia jasa service</p></strong>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row" style="margin-top: -30px;">
                             <label for="jenis_bank" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Bank') }}</label>
 
                             <div class="col-md-6">
-                                <input id="jenis_bank" type="text" class="form-control @error('jenisBank') is-invalid @enderror" name="jenisBank" value="{{ $user->jenis_bank }}" autocomplete="jenis_bank" placeholder="ex: BCA, BRI">
+                                <input id="jenis_bank" type="text" class="form-control @error('jenisBank') is-invalid @enderror" name="jenisBank" autocomplete="jenis_bank" placeholder="ex: BCA, BRI" @if (!is_null($user->jenis_bank)) ? value="{{ $user->jenis_bank }}" @else value="{{ old('jenisBank') }}" @endif >
                             </div>
                         </div>
 
@@ -100,7 +104,7 @@
                             <label for="no_rek" class="col-md-4 col-form-label text-md-right">{{ __('No Rekening') }}</label>
 
                             <div class="col-md-6">
-                                <input id="no_rek" type="number" class="form-control @error('noRek') is-invalid @enderror" name="noRek" value="{{ $user->no_rek }}" autocomplete="no_rek" placeholder="ex: 123X XXXX XX">
+                                <input id="no_rek" type="number" class="form-control @error('noRek') is-invalid @enderror" name="noRek" autocomplete="no_rek" placeholder="ex: 123X XXXX XX" @if (!is_null($user->no_rek)) ? value="{{ $user->no_rek }}" @else value="{{ old('noRek') }}" @endif>
                             </div>
                         </div>
 
