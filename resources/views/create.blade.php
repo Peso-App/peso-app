@@ -34,7 +34,7 @@
                 @enderror
               </div>
               @if (Auth::user()->address === null)
-                  <!-- Button trigger modal -->
+              <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Tawari
               </button>
