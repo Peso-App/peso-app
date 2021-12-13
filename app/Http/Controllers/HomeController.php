@@ -46,4 +46,9 @@ class HomeController extends Controller
 
         return redirect()->to('/home');
     }
+
+    public function create()
+    {
+        return view('create');
+    }
 }

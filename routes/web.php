@@ -25,7 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/detail/{id}', 'DetailController@index')->name('detail');
 
 Route::middleware('auth')->group(function () {
-    Route::post('/home', 'HomeController@store')->name('home');
+
+    Route::get('/home/create', 'HomeController@create')->name('create');
+    Route::post('/home/store', 'HomeController@store')->name('create');
 
     Route::post('/detail/{id}/transaksi', 'DetailController@store');
     Route::get('/notifikasi', 'DetailController@history')->name('notifikasi');
