@@ -11,9 +11,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user(); 
-        $response = Http::get('https://ibnux.github.io/data-indonesia/provinsi.json');
-        $data = $response->json();
-        return view('profile', compact('user', 'data'));
+        return view('profile', compact('user'));
     }
 
     public function update(Request $request)

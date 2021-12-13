@@ -152,6 +152,9 @@
 
             <p class="mt-3">Jenis bank: <b>{{ $t->penyedianya->jenis_bank }}</b></p>
             <p style="margin-top: -15px;">No Rekening: <b>{{ $t->penyedianya->no_rek }}</b></p>
+            <p><strong>Keterangan perbaikan:</strong></p>
+            <p>{{ $t->keterangan }}</p>
+            <p>Mohon untuk segera melakukan pembayaran ke <strong>Nomor Rekening</strong> {{ $t->penyedianya->name }} sejumlah <strong>{{ $t->harga }}</strong></p>
 
           </div>
           <div class="modal-footer">
