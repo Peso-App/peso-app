@@ -14,24 +14,27 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/styles.css')}}">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar fixed-top navbar-expand-lg ">
             <div class="container">
                 <a class="navbar-brand" href="{{URL::to('/')}}"><strong>Peso App</strong></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav ml-auto">
                     <a class="nav-link{{request()->is('home') ? ' active' : ''}}" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     @auth
                     <a class="nav-link{{request()->is('mypost') ? ' active' : ''}}" href="{{ route('mypost') }}">My Post <span class="sr-only">(current)</span></a>
                     @endauth
-                </div>
-                <div class="navbar-nav ml-auto">
+
                     @guest
                         <li class="nav-item">
                             <a class="nav-link{{request()->is('login') ? ' active' : ''}}" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -82,7 +85,7 @@
             </div>
         </main>
 
-        <hr>
+
         
         <footer>
             <div class="container">
