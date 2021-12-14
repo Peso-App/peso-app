@@ -18,27 +18,27 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">Peso App</a>
+                <a class="navbar-brand" href="{{URL::to('/')}}"><strong>Peso App</strong></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link{{request()->is('home') ? ' active' : ''}}" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     @auth
-                    <a class="nav-link active" href="{{ route('mypost') }}">My Post <span class="sr-only">(current)</span></a>
+                    <a class="nav-link{{request()->is('mypost') ? ' active' : ''}}" href="{{ route('mypost') }}">My Post <span class="sr-only">(current)</span></a>
                     @endauth
                 </div>
                 <div class="navbar-nav ml-auto">
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link{{request()->is('login') ? ' active' : ''}}" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link{{request()->is('register') ? ' active' : ''}}" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -46,7 +46,7 @@
                             <a class="nav-link" href="/chatify">{{ __('My Chat') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('notifikasi') }}">{{ __('Notifikasi') }}</a>
+                            <a class="nav-link{{request()->is('notifikasi') ? ' active' : ''}}" href="{{ route('notifikasi') }}">{{ __('Notifikasi') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -74,9 +74,38 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main>
+            @yield('jumbotron')
+
+            <div class="py-4">
+                @yield('content')
+            </div>
         </main>
+
+        <hr>
+        
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="font-weight-bold">PesoApp</p>
+                        <p>Solusi service, tidak perlu<br>susah cari teknisi</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="font-weight-bold">Explore Us</p>
+                        <a href="" class="text-dark">About</a><br>
+                        <a href="" class="text-dark">Privacy police</a><br>
+                        <a href="" class="text-dark">Terms & conditions</a><br>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="font-weight-bold">Getting Touch</p>
+                        <p>suport@pesoapp.id<br>021 - 3346 - 7577<br>PesoApp, Bandung</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center pt-4">Copyright &copy; 2021•All rights reserved•PesoApp</p>
+        </footer>
     </div>
 
      <!-- Optional JavaScript; choose one of the two! -->
