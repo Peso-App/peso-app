@@ -26,7 +26,6 @@
 
   <div class="row">
       @foreach ($posts as $post)
-      @if (($post->aktif)===1)  
       <div class="col-sm-4 mb-3">
           <img src="{{ URL::asset('img/image2.png')}}" alt="default">
           <h5 class="card-title font-weight-bold mt-2">{{Str::limit($post->judul,20)}}</h5>
@@ -35,7 +34,6 @@
           <p class="card-text" style="margin-top: -15px;">Kota: {{$post->user->kab_kota}}</p>
           <a href="{{URL::to('/')}}/detail/{{$post->id}}" class="btn btn-block text-center btn-primary">Detail</a>
       </div>
-      @endif
       @endforeach
   </div>
   <div class="d-flex justify-content-center">
