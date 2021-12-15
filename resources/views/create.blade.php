@@ -12,7 +12,7 @@
               <h5>Add Post</h5>
         </div>
       <div class="card-body">
-        <form action="/home/store" method="POST">
+        <form action="{{ route('create.store') }}" method="POST">
             @csrf
             <div class="modal-body">
               <div class="form-group">
