@@ -53,8 +53,8 @@ class DetailController extends Controller
             $status = 'Belum diatur';
         }
 
-        if (!is_null($transaksi->pay_amount_at)) {
-            $status = 'Menunggu Klien melakukan pembayaran';
+        if (!is_null($transaksi->pay_amount_at)) {;
+            $status = Constants::STATUS_TRANSAKSI_PAY_AMOUNT_AT;
         }
 
         if (!is_null($transaksi->paid_at)) {
