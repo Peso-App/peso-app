@@ -138,6 +138,17 @@ footer {
     margin-left: 5px;
 }
 
+/* NOTIFIKASI */
+.form-pembayaran {
+    resize:none;
+    width:750px;
+    background-color: #F5F6F8;
+}
+
+.form-harga {
+    background-color: #F5F6F8;
+}
+
 @media screen and (min-width: 1200px) {
     .detail-disk {
         min-width: 216px;

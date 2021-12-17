@@ -53,23 +53,47 @@
         @endif
         @if (!is_null($t->already_at) && is_null($t->pay_amount_at))
         <tr>
+          <td colspan="6" class="text-center font-weight-bold" style="border-style: hidden; color: #152B5B; font-size: 42px;" class="notif_rincian_harga">Rincian Pembayaran</td>
+        </tr>
+        <tr>
+          <td colspan="6" class="text-center font-weight-bold" style="border-style: hidden; color: #B0B0B0; font-size: 18px;" class="notif_rincian_harga">Masukkan rincian total dibawah!</td>
+        </tr>
+        <tr>
+          <td colspan="6" class="text-center font-weight-bold" style="border-style: hidden; color: #152B5B; font-size: 18px;" class="notif_rincian_harga">Rincian barang dan harga</td>
+        </tr>
+        <tr>
           <form action="{{ route('notifikasi.bayar',$t->uuid) }}" method="POST">
             @csrf
-            <td colspan="4"><textarea class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" cols="30" rows="3" placeholder="Masukkan keterangan ex: harga hardisk, processor dll"></textarea></td>
-            <td><input type="number" class="form-control @error('harga') is-invalid @enderror" name="harga" placeholder="Masukkan total harga perbaikan"></td>
-            <td>
-                <button type="submit" class="btn btn-success">{{ __('Konfirmasi') }}</button>
+            <td></td>
+            <td colspan="4"><textarea class="form-control form-pembayaran @error('keterangan') is-invalid @enderror" name="keterangan" style="height: 170px;" placeholder="Masukkan keterangan ex: harga hardisk, processor dll"></textarea></td>
+        </tr>
+        <tr>
+            <td style="border-style: hidden;"></td>
+            <td style="border-style: hidden;" class="p-4">Total:</td>
+            <td style="border-style: hidden;"></td>
+            <td style="border-style: hidden;"></td>
+            <td style="border-style: hidden;"><input type="number" class="form-control form-harga @error('harga') is-invalid @enderror" name="harga"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="4" style="border-style: hidden;">
+                <button type="submit" class="btn btn-success btn-block">{{ __('Konfirmasi') }}</button>
             </td>
           </form>
         </tr>
         @endif
         @endif
+        @if (!is_null($t->pay_amount_at) && is_null($t->paid_at))
+        <tr>
+          <td colspan="6" class="text-center" style="border-style: hidden; color: #152B5B; font-size: 20px;">menunggu klien melakukan pembayaran.....</td>
+        </tr>
+        @endif
         @if (!is_null($t->paid_at) && is_null($t->wait_paid_at))
         <tr>
-          <td colspan="5" class="text-center">Konfirmasi apakah klien sudah melakukan pembayaran</td>
+          <td colspan="5" class="text-center" style="font-size: 20px;">Apakah klien sudah melakukan pembayaran</td>
           <td>
-            <a href="{{ route('notifikasi.bayar.konfirmasi',$t->uuid) }}" class="btn btn-success"><i class="fas fa-check"></i></a>
-            <a href="#" class="btn btn-danger"><i class="fas fa-times"></i></a>
+            <a href="{{ route('notifikasi.bayar.konfirmasi',$t->uuid) }}" class="btn btn-success">Ya</a>
+            <a href="#" class="btn btn-danger">Tidak</a>
           </td>
         </tr>
         @endif
@@ -109,8 +133,8 @@
         <tr>
           <td colspan="4" class="text-center">Apakah anda menyetujui {{ $t->penyedianya->name }} untuk memperbaiki barang anda?</td>
           <td class="text-center">
-            <a href="{{ route('notifikasi.terima',$t->uuid) }}" class="btn btn-primary">Setuju</a>
-            <a href="{{ route('notifikasi.tolak',$t->uuid) }}" class="btn btn-danger">Tolak</a>
+            <a href="{{ route('notifikasi.terima',$t->uuid) }}" class="btn btn-success">Ya</a>
+            <a href="{{ route('notifikasi.tolak',$t->uuid) }}" class="btn btn-danger">Tidak</a>
           </td>
         </tr>
         @endif
@@ -129,7 +153,7 @@
         <tr>
           <td colspan="5"></td>
           <td class="text-center">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Bayar</button>
+            <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Bayar</button>
           </td>
         </tr>
         @endif
@@ -143,19 +167,20 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Bayar ke {{ $t->penyedianya->name }}</h5>
+            <h5 class="modal-title" id="exampleModalLabel">pesoApps</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <h6>Metode Pembayaran</h6>
+            <h6 style="font-size: 24px; color: #152B5B;">Transfer pembayaran ke Teknisi</h6>
 
-            <p class="mt-3">Jenis bank: <b>{{ $t->penyedianya->jenis_bank }}</b></p>
+            <p>Metode pembayaran Transfer</p>
+            <p class="mt-3">Jenis bank : <b>{{ $t->penyedianya->jenis_bank }}</b></p>
             <p style="margin-top: -15px;">No Rekening: <b>{{ $t->penyedianya->no_rek }}</b></p>
             <p><strong>Keterangan perbaikan:</strong></p>
-            <p>{{ $t->keterangan }}</p>
-            <p>Mohon untuk segera melakukan pembayaran ke <strong>Nomor Rekening</strong> {{ $t->penyedianya->name }} sejumlah <strong>{{ $t->harga }}</strong></p>
+            <p style="margin-top: -10px;">{{ $t->keterangan }}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Mohon untuk segera melakukan pembayaran ke no Rekening <strong>{{ $t->penyedianya->no_rek }}</strong> atas nama <strong>{{ $t->penyedianya->name }}</strong> sejumlah <strong>{{ $t->harga }}</strong></p>
 
           </div>
           <div class="modal-footer">
