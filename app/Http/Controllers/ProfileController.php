@@ -33,6 +33,7 @@ class ProfileController extends Controller
         $user->provinsi = $request->input('provinsi');
         $user->kab_kota = $request->input('kabKota');
         $user->no_hp = $request->input('number');
+        $user->keahlian = $request->input('skill');
         $user->jenis_bank = $request->input('jenisBank');
         $user->no_rek = $request->input('noRek');
 

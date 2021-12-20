@@ -90,10 +90,9 @@
         @endif
         @if (!is_null($t->paid_at) && is_null($t->wait_paid_at))
         <tr>
-          <td colspan="5" class="text-center" style="font-size: 20px;">Apakah klien sudah melakukan pembayaran</td>
+          <td colspan="5" class="text-center" style="font-size: 20px;">Mohon konfirmasi bahwa klien sudah melakukan pembayaran</td>
           <td>
-            <a href="{{ route('notifikasi.bayar.konfirmasi',$t->uuid) }}" class="btn btn-success">Ya</a>
-            <a href="#" class="btn btn-danger">Tidak</a>
+            <a href="{{ route('notifikasi.bayar.konfirmasi',$t->uuid) }}" class="btn btn-success">Konfirmasi</a>
           </td>
         </tr>
         @endif
@@ -139,15 +138,12 @@
         </tr>
         @endif
         @if (!is_null($t->wait_service_at) && is_null($t->already_at))
-        @if (is_null($t->notyet_at))
         <tr>
-          <td colspan="5" class="text-center">Apakah {{ $t->penyedianya->name }} sudah memperbaiki barang anda</td>
+          <td colspan="5" class="text-center">Mohon konfirmasi {{ $t->penyedianya->name }} sudah memperbaiki barang</td>
           <td>
-            <a href="{{ route('notifikasi.sudahPerbaiki',$t->uuid) }}" class="btn btn-success"><i class="fas fa-check"></i></a>
-            <a href="{{ route('notifikasi.belumPerbaiki',$t->uuid) }}" class="btn btn-danger"><i class="fas fa-times"></i></a>
+            <a href="{{ route('notifikasi.sudahPerbaiki',$t->uuid) }}" class="btn btn-success">Konfirmasi</a>
           </td>
         </tr>
-        @endif
         @endif
         @if (!is_null($t->pay_amount_at) && is_null($t->paid_at))
         <tr>
@@ -180,7 +176,7 @@
             <p style="margin-top: -15px;">No Rekening: <b>{{ $t->penyedianya->no_rek }}</b></p>
             <p><strong>Keterangan perbaikan:</strong></p>
             <p style="margin-top: -10px;">{{ $t->keterangan }}</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;Mohon untuk segera melakukan pembayaran ke no Rekening <strong>{{ $t->penyedianya->no_rek }}</strong> atas nama <strong>{{ $t->penyedianya->name }}</strong> sejumlah <strong>{{ $t->harga }}</strong></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Mohon untuk segera melakukan pembayaran ke no Rekening <strong>{{ $t->penyedianya->no_rek }}</strong> atas nama <strong>{{ $t->penyedianya->name }}</strong> sejumlah <strong>Rp. {{ $t->harga }}</strong></p>
 
           </div>
           <div class="modal-footer">
