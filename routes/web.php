@@ -50,3 +50,6 @@ Route::middleware('auth')->group(function () {
 
 
 });
+
+
+Route::get('/about', 'AboutController@index')->name('about');
