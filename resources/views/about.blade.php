@@ -15,8 +15,8 @@
                 <p class="font-weight-bold">Muhammad Dwi Fahriza</p>
                 <p style="margin-top: -15px;">Full-stack Developer</p>
                 <p style="margin-top: -15px;">Universitas Muhammadiyah Sukabumi</p>
-                <a href="https://github.com/dwifahriza45" class="btn btn-dark"><i class="fab fa-github"></i> Github</a>
-                <a href="https://www.linkedin.com/in/muhammad-dwi-fahriza-429110210/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/dwifahriza45" target="_blank" class="btn btn-dark"><i class="fab fa-github"></i> Github</a>
+                <a href="https://www.linkedin.com/in/muhammad-dwi-fahriza-429110210/" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
     </div>
@@ -30,8 +30,8 @@
                 <p class="font-weight-bold">Riswan Gani Padilah</p>
                 <p style="margin-top: -15px;">Full-stack Developer</p>
                 <p style="margin-top: -15px;">Universitas Komputer Indonesia</p>
-                <a href="https://github.com/riswangani" class="btn btn-dark"><i class="fab fa-github"></i> Github</a>
-                <a href="https://www.linkedin.com/in/riswangp/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/riswangani" target="_blank" class="btn btn-dark"><i class="fab fa-github"></i> Github</a>
+                <a href="https://www.linkedin.com/in/riswangp/" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
     </div>
