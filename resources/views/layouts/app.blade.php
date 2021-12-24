@@ -98,7 +98,7 @@
                     </div>
                     <div class="col-md-4">
                         <p class="font-weight-bold">Explore Us</p>
-                        <a href="" class="text-dark">About</a><br>
+                        <a href="{{ route('about') }}" class="text-dark">About</a><br>
                         <a href="" class="text-dark">Privacy police</a><br>
                         <a href="" class="text-dark">Terms & conditions</a><br>
                     </div>
