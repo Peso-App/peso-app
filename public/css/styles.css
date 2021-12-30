@@ -45,7 +45,7 @@ footer {
 
 .jumbotron .container a {
     position: relative;
-    z-index: 16;
+    z-index: 15;
 }
 
 .jumbotron {
