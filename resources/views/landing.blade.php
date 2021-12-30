@@ -7,7 +7,7 @@
   <div class="container">
     <h1 class="display-5 text-light">Solusi service elektronik, <br>Bersama kami</h1>
     @guest
-    <a href="{{ route('register') }}" class="btn btn-primary"><strong>Daftar Sekarang</strong></a>
+    <a href="{{ route('register') }}" class="daftar btn btn-primary"><strong>Daftar Sekarang</strong></a>
     @else
     <a href="{{ route('home') }}" class="btn btn-primary"><strong>Buat postingan</strong></a>
     @endguest

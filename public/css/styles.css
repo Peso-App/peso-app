@@ -43,6 +43,11 @@ footer {
 
 /* jumbotron */
 
+.jumbotron .container a {
+    position: relative;
+    z-index: 16;
+}
+
 .jumbotron {
     background-image: url("../img/image1.png");
     height: 502px;
@@ -140,13 +145,13 @@ footer {
 
 /* NOTIFIKASI */
 .form-pembayaran {
-    resize:none;
-    width:750px;
-    background-color: #F5F6F8;
+    resize: none;
+    width: 750px;
+    background-color: #f5f6f8;
 }
 
 .form-harga {
-    background-color: #F5F6F8;
+    background-color: #f5f6f8;
 }
 
 @media screen and (min-width: 1200px) {
